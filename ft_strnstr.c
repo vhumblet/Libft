@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vhumblet <vhumblet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 12:08:31 by vhumblet          #+#    #+#             */
+/*   Updated: 2024/10/17 16:41:47 by vhumblet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
@@ -15,20 +27,22 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 		if (s1[i] == s2[j])
 			while (s1[i + j] == s2[j] && i + j < len && s2[j])
 				j++;
-		if (s1[i + j - 1] == s2[j - 1] && i + j <= len && s2[j] == '\0')
+		if (i + j <= len && s2[j] == '\0')
 			return ((char *)&s1[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 /*
-#include <stdio.h>
 #include <string.h>
 int	main(void)
 {
-	char	*str = "bonbonjourleleslesamis";
-	char	*str2 = "";
+	char	*str = "aaxx";
+	char	*str2 = "xx";
 
-	printf("ft = %s\n", ft_strnstr(str, str2, 0));
-	printf("lb = %s\n", strnstr(str, str2, 0));
-}*/
+	//ft_putstr_fd(ft_strnstr(str, str2, 30), 1);
+	//ft_putstr_fd(strnstr(str, str2, 30), 1);
+	printf("ft = %s\n", ft_strnstr(str, str2, 4));
+	printf("lb = %s\n", strnstr(str, str2, 4));
+}
+*/

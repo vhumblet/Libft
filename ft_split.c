@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vhumblet <vhumblet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 12:07:55 by vhumblet          #+#    #+#             */
+/*   Updated: 2024/10/17 19:28:44 by vhumblet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	*ft_tab_free(char **tab, int count)
@@ -14,7 +26,7 @@ static void	*ft_tab_free(char **tab, int count)
 	return (NULL);
 }
 
-static int	count_words(char const *s, char c)
+static int	count_w(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -71,8 +83,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	i = 0;
-	strings = (char **)malloc(sizeof(char *)
-			* (count_words(s, c) + 1));
+	strings = (char **)malloc(sizeof(char *) * (count_w(s, c) + 1));
 	if (!strings)
 		return (NULL);
 	while (*s != '\0')
@@ -82,7 +93,7 @@ char	**ft_split(char const *s, char c)
 		if (*s != '\0')
 		{
 			strings[i] = ft_word(s, c);
-			if(!strings[i])
+			if (!strings[i])
 				return (ft_tab_free(strings, i));
 			i++;
 		}
